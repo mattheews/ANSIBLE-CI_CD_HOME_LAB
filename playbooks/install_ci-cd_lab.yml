@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+
+  roles:
+    ## INSTALL BASE CONFIG (LIKE DOCKER, REPOS ETC)
+    - ../roles/common
