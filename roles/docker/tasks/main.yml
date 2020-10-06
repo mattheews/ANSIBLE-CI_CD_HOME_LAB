@@ -1,0 +1,4 @@
+---
+- include_tasks: manage_state.yml
+  tags:
+    - docker

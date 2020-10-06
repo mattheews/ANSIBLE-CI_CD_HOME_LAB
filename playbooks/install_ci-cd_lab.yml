@@ -1,8 +1,11 @@
 ---
 - hosts: all
-  gather_facts: yes
+  gather_facts: no
   become: yes
 
   roles:
     ## INSTALL BASE CONFIG (LIKE DOCKER, REPOS ETC)
     - ../roles/common
+
+    ## MANAGE DOCKER (LIKE START / RESTART OR CHANGE CONFIGURATION)
+    - ../roles/docker

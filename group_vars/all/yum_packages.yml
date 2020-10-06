@@ -1,0 +1,9 @@
+---
+# List of services to install on the host
+yum_packages:
+  - yum-utils
+  - device-mapper-persistent-data
+  - lvm2
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
