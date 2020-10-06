@@ -1,0 +1,8 @@
+---
+#Task to install and configure services on the host/s
+
+- name: "install yum packages"
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ yum_packages }}"

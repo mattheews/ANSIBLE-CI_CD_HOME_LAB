@@ -1,4 +1,3 @@
 ---
-
-pip-packages:
+pip_packages:
   - requests
