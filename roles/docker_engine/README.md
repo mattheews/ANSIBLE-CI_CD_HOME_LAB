@@ -1,7 +1,12 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+REFACTOR PRINT SSH KEYPAIR:
+- name: Print id_rsa for remote access
+  debug:
+    msg: "SSH Public key for remote access as {{ docker_iam.docker_user }} user {{ read_id_rsa.stdout }}"
+  tags:
+    - docker
 
 Requirements
 ------------

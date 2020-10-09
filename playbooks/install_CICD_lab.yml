@@ -8,4 +8,4 @@
     - ../roles/common
 
     ## MANAGE DOCKER (LIKE START / RESTART OR CHANGE CONFIGURATION)
-    - ../roles/docker
+    - ../roles/docker_engine
