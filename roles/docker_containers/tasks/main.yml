@@ -1,0 +1,6 @@
+---
+
+- name: Create directory for Docker workspace
+  file:
+    path: /
+    state: directory
