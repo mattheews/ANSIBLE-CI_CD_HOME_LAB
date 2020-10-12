@@ -1,0 +1,8 @@
+---
+- name: Include task to install docker_compose
+  include_tasks: install_docker_compose.yml
+
+# - name: Create directory for Docker workspace
+#   file:
+#     path: /
+#     state: directory

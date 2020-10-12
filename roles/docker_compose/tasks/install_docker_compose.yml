@@ -1,0 +1,6 @@
+---
+- name: Download docker-compose from GitHub
+  uri:
+    url: "{{ docker_compose_github_url }}"
+    method: "GET"
+    dest: "/usr/local/bin/docker-compose"

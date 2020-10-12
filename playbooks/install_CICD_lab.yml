@@ -9,3 +9,6 @@
 
     ## MANAGE DOCKER (LIKE START / RESTART OR CHANGE CONFIGURATION)
     - ../roles/docker_engine
+
+    ## START WITH DOCKER_COMPOSE
+    - ../roles/docker_compose
