@@ -1,0 +1,11 @@
+---
+
+### Get version of the OS
+
+- name: Get OS Distro
+  shell: "uname -s"
+  register: os_distro
+
+- name: Get OS Arch
+  shell: "uname -m"
+  register: os_arch

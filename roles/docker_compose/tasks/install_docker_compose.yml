@@ -1,6 +1,18 @@
 ---
-- name: Download docker-compose from GitHub
+- name: Download {{ docker_compose_file_name }} from GitHub
   uri:
-    url: "{{ docker_compose_github_url }}"
-    method: "GET"
-    dest: "/usr/local/bin/docker-compose"
+    url: "{{ docker_compose_github_url }}-{{ os_distro.stdout }}-{{ os_arch.stdout }}"
+    dest: "{{ docker_compose_dest_dir }}/{{ docker_compose_file_name }}"
+    mode: '755'
+    status_code:
+      - 200
+      - 304
+  tags:
+    - docker_compose  
+
+- name: Ensure if {{ docker_compose_file_name }} have execute permissions
+  file:
+    path: "{{ docker_compose_dest_dir }}/{{ docker_compose_file_name }}"
+    mode: '755'
+  tags:
+    - docker_compose  
