@@ -1,6 +1,0 @@
----
-# tasks file for Docker_Compose.ci_cd_lab
-- name: Include task for preparation of Docker Compose project
-  include_tasks: prepare_compose_project.yml
-  tags:
-    - ci_cd_lab
