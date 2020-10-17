@@ -15,3 +15,4 @@
 
     ## START WITH DOCKER_COMPOSE PROJECT
     - ../roles/docker_compose.ci_cd_lab
+
