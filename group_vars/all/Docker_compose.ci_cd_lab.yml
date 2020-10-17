@@ -1,0 +1,7 @@
+#Template vars
+hit_count: "get_hit_count"
+hello: "Hello World!"
+
+#Task vars
+compose_project_path: "/usr/local/share/applications/docker-compode_ci-cd_lab"
+  

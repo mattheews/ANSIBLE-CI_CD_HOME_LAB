@@ -4,8 +4,14 @@
   become: yes
 
   roles:
-    ## INSTALL BASE CONFIG (LIKE DOCKER, REPOS ETC)
-    - ../roles/common
+    ## INSTALL BASE CONFIG (DOCKER, REPOS ETC)
+    - ../roles/Manage.common_tasks
 
-    ## MANAGE DOCKER (LIKE START / RESTART OR CHANGE CONFIGURATION)
-    - ../roles/docker_engine
+    ## MANAGE DOCKER_ENGINE (START / RESTART OR CHANGE CONFIGURATION)
+    - ../roles/Manage.docker_engine
+
+    ## MANAGE DOCKER_COMPOSE
+    - ../roles/Manage.docker_compose
+
+    ## START WITH DOCKER_COMPOSE PROJECT
+    - ../roles/Docker_Compose.ci_cd_lab

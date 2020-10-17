@@ -1,4 +1,6 @@
 ---
+
+- include_tasks: get_os_version.yml
 - include_tasks: manage_firewall.yml
   tags:
     - firewall

@@ -7,7 +7,7 @@
   tags:
     - docker
     
-- name: Create {{ docker_iam.docker_user }} user
+- name: Create {{ docker_iam.docker_user }} user and add to {{ docker_iam.docker_group }} group
   user:
     name: "{{ docker_iam.docker_user }}"
     group: "{{ docker_iam.docker_group }}"
