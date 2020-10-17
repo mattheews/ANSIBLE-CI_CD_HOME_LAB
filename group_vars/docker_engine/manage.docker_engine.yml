@@ -1,0 +1,5 @@
+docker_service: "docker"
+
+docker_iam:
+  docker_user: "docker"
+  docker_group: "docker"
