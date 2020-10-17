@@ -1,0 +1,20 @@
+---
+# Task to manage service state
+
+- name: Enable and start docker service
+  service:
+    name: "{{ docker_service }}"
+    state: started
+    enabled: yes
+  register: docker_state
+  tags:
+    - docker
+
+- name: Restart docker service if needed
+  service:
+    name: "{{ docker_service }}"
+    state: restarted
+  when:
+    - docker_state.enabled == false
+  tags:
+    - docker

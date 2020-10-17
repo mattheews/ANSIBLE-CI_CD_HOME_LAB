@@ -1,0 +1,13 @@
+---
+- name: Add host to docker_engine group
+  add_host:
+    name: "{{ ansible_host }}"
+    groups: docker_engine
+
+- include_tasks: manage_state.yml
+  tags:
+    - docker
+
+- include_tasks: docker_iam.yml
+  tags:
+    - docker
