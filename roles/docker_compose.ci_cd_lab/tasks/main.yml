@@ -3,8 +3,15 @@
   add_host:
     name: "{{ ansible_host }}"
     groups: docker_compose_ci_cd_lab
+  tags:
+    - ci_cd_lab
 
 - name: Include task for preparation of Docker Compose project
   include_tasks: prepare_compose_project.yml
+  tags:
+    - ci_cd_lab
+
+- name: Include task for running docker-compose services
+  include_tasks: start_docker_compose_services.yml
   tags:
     - ci_cd_lab

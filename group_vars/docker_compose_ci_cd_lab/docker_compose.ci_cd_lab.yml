@@ -1,7 +1,15 @@
 #Template vars
-hit_count: "get_hit_count"
-hello: "Hello World!"
+app_hit_count: "get_hit_count"
+app_hello: "Hello World! I have been seen {} times.\\n"
+app_redis_app_name: "redis"
+app_redis_app_port: "6379"
 
+requirements_packages:
+  - flask
+  - redis
+
+docker_compose_ports: "5000:5000"
+  
 #Task vars
-compose_project_path: "/usr/local/share/applications/docker-compode_ci-cd_lab"
+compose_project_path: "/usr/local/share/applications/docker-compose_ci-cd_lab"
   

@@ -8,12 +8,14 @@
   tags:
     - ci_cd_lab
 
-- name: Copy template
+- name: Copy templates to {{ compose_project_path }}
   template:
-    src: app.py.j2
-    dest: "{{ compose_project_path }}/app.py"
+    src: "{{ item.path }}"
+    dest: "{{ compose_project_path }}/{{ item.path | regex_replace('.j2', '') }}"
     owner: root
     group: root
     mode: '0744'
+  with_filetree: "../templates"
   tags:
     - ci_cd_lab
+    

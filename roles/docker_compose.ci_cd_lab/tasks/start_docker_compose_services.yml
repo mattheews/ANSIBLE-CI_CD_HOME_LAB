@@ -1,0 +1,12 @@
+---
+- name: Run the docker-compose services defined in {{ compose_project_path }}/docker-compose.yml
+  shell: "docker-compose -f {{ compose_project_path }}/docker-compose.yml up -d 2>&1" 
+  register: docker_compose_project
+  tags:
+    - ci_cd_lab
+
+- name: Print output of creation proces for project {{ compose_project_path }}
+  debug:
+    msg: "{{ docker_compose_project.stdout_lines }}"
+  tags:
+    - ci_cd_lab
