@@ -1,6 +1,6 @@
 #Template vars
 app_hit_count: "get_hit_count"
-app_hello: "Hello World! I have been seen {} times.\\n"
+app_hello: "\\nHello World! I have been seen {} times.\\n"
 app_redis_app_name: "redis"
 app_redis_app_port: "6379"
 

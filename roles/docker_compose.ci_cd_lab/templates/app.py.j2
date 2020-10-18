@@ -20,4 +20,4 @@ def {{ hit_count }}():
 @app.route('/')
 def hello():
     count = get_hit_count()
-    return '{{ app_hello }}'.format(count)
+    return 'This is message generated from host {{ ansible_host }}{{ app_hello }}'.format(count)
