@@ -1,8 +1,9 @@
 ---
 - name: Add host to common_tasks group
   add_host:
-    name: "{{ ansible_host }}"
+    name: '{{ item }}'
     groups: common_tasks
+  loop: "{{ ansible_play_hosts }}"
 
 - include_tasks: get_os_version.yml
 - include_tasks: manage_firewall.yml
