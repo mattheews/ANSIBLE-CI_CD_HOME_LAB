@@ -1,0 +1,18 @@
+---
+#local dirs
+ci_cd_lab_prepared_templates_Fullpath: "ci_cd_project_templates/reverse_proxy_ssl.conf"
+
+#remote dirs
+ci_cd_lab_workdir_FullPath: "/usr/local/share/applications/ci-cd_lab"
+
+#nginx template vars
+nginx_listen_ports:  
+  - "443 ssl"
+  - "8080"
+  - "80"
+
+nginx_ssl_certificate: "/etc/nginx/conf.d/cert.pem"
+nginx_ssl_certificate_key: "/etc/nginx/conf.d/key.pem"
+
+nginx_proxy_pass:
+  - "http://artifactory:8081"

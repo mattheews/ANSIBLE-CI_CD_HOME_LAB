@@ -1,0 +1,7 @@
+---
+- hosts: ci_cd_lab
+  gather_facts: no
+  become: yes
+
+  roles:
+    - ../roles/configuration_docker_compose

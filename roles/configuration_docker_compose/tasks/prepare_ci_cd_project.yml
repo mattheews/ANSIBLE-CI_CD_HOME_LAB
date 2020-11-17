@@ -1,0 +1,15 @@
+
+### HERE BEFORE SYNCING NEED TO PREPARE TEMPLATES FOR  ARTIFACTORY NGINX ETC
+
+- name: Sync CI_CD templates working-dir
+  synchronize:
+      src: "../{{ ci_cd_lab_prepared_templates_Fullpath }}/"
+      dest: "{{ ci_cd_lab_workdir_FullPath }}"
+
+
+- name: Generate a Self Signed OpenSSL certificate
+  command: >
+      openssl req -subj '/CN=localhost' -x509 -newkey rsa:4096 -nodes
+      -keyout key.pem -out cert.pem -days 365
+  args:
+      chdir: ./artifactory/nginx-config/

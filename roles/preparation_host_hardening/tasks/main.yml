@@ -1,16 +1,25 @@
 ---
-- name: Add host to common_tasks group
+- name: Add host to preparation_host_hardening group
   add_host:
     name: '{{ item }}'
-    groups: common_tasks
+    groups: preparation_host_hardening
   loop: "{{ ansible_play_hosts }}"
 
+#Get os version for proper hardening tasks
 - include_tasks: get_os_version.yml
+
+#Manage firewall rules
 - include_tasks: manage_firewall.yml
   tags:
     - firewall
 
+#Repo configuration
 - include_tasks: add_yum_repos.yml
+
+#Installing yum packages
 - include_tasks: install_yum_packages.yml
+
+# Installing docker compose binary
+- include_tasks: install_docker_compose.yml
 
 #- include_tasks: install_pip_packages.yml

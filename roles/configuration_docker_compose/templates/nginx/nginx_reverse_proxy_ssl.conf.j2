@@ -1,0 +1,14 @@
+server {
+{% for port in nginx_listen_ports %}
+  listen {{ port }};
+{% endfor %}
+
+  ssl_certificate {{ nginx_ssl_certificate }};
+  ssl_certificate_key {{ nginx_ssl_certificate_key }};
+  
+  location / {
+{% for proxy_pass in nginx_proxy_pass %}
+     proxy_pass {{ proxy_pass }};
+{% endfor %}
+  }
+}

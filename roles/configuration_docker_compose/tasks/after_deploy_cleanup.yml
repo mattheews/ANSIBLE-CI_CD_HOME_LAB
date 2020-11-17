@@ -1,0 +1,7 @@
+---
+- name: Remove locally generated templates
+  file:
+    name: ../ci_cd_project_templates/reverse_proxy_ssl.conf
+    state: absent
+  run_once: true
+  delegate_to: localhost

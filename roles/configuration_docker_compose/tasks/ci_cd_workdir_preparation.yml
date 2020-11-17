@@ -1,0 +1,19 @@
+---
+### Pre-tasks for CI_CD workdir & cleaning UP previous installation
+- name: Check if project dir {{ ci_cd_lab_workdir_FullPath }} exist
+  stat:
+    path: "{{ ci_cd_lab_workdir_FullPath }}"
+  register: ci_cd_lab_workdir_FullPath_info
+
+- name: Clean up docker-compose project
+  command: >
+      docker-compose down
+  args:
+      chdir: "./{{ ci_cd_lab_workdir_FullPath }}/"
+  when: ci_cd_lab_workdir_FullPath_info.stat.exists
+
+- name: Delete {{ ci_cd_lab_workdir_FullPath }} workdir
+  file:
+      state: absent
+      path: "{{ ci_cd_lab_workdir_FullPath }}"
+  when: ci_cd_lab_workdir_FullPath_info.stat.exists

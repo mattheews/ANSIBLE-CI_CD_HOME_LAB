@@ -1,0 +1,8 @@
+---
+## HERE CHANGE TO GENERIC TEMPLATES PREPARATION - todo
+- name: Prepare templates
+  template:
+    src: "nginx/nginx_reverse_proxy_ssl.conf.j2"
+    dest: "../{{ ci_cd_lab_prepared_templates_Fullpath }}"
+  run_once: true
+  delegate_to: localhost

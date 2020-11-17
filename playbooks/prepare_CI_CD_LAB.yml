@@ -1,0 +1,14 @@
+---
+- hosts: ci_cd_lab
+  gather_facts: no
+  become: yes
+
+  roles:
+    ## INSTALL BASE CONFIG (DOCKER, REPOS ETC)
+    - ../roles/preparation_host_hardening
+
+    ## MANAGE DOCKER_ENGINE (START / RESTART OR CHANGE CONFIGURATION)
+    - ../roles/configuration_docker_engine
+
+- name: Import installation playbook
+  import_playbook: configure_CI_CD_LAB.yml

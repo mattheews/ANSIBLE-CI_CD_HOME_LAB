@@ -1,0 +1,30 @@
+---
+- name: Add host to configuration_docker_compose group
+  add_host:
+    name: "{{ ansible_host }}"
+    groups: configuration_docker_compose
+  loop: "{{ ansible_play_hosts }}"
+  tags:
+    - ci_cd_lab
+
+- name: Prepare CI_CD workdir on remote host
+  include_tasks: ci_cd_workdir_preparation.yml
+  tags:
+    - ci_cd_lab
+    
+- name: Prepare templates on Ansible hosts for CI_CD LAB
+  include_tasks: prepare_ci_cd_local_templates.yml
+  tags:
+    - ci_cd_lab
+
+
+
+# - name: Include task for preparation of Docker Compose project
+#   include_tasks: prepare_ci_cd_project.yml
+#   tags:
+#     - ci_cd_lab
+
+# - name: Include task for running docker-compose services
+#   include_tasks: start_docker_compose_services.yml
+#   tags:
+#     - ci_cd_lab
